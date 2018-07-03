@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<title><%= yield(:title) %></title>
+   <%= csrf_meta_tags %>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700|Merriweather:700" rel="stylesheet">
+   <!-- meta charec set -->
+   <meta charset="utf-8">
+   <!-- Always force latest IE rendering engine or request Chrome Frame -->
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <!-- Meta Description -->
+   <meta name="description" content="Blue One Page Creative HTML5 Template">
+   <meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
+   <!-- Mobile Specific Meta -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Google Font -->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+   <style>
+     #mainNavCollapse li a{
+       color: #FFFFFF;text-decoration: none;font-family: 'Merriweather', serif;cursor: pointer;
+       font-size: 13px;
+     }
+   </style>
+ </head>
+
+
+  <body class="main_body">
+    <% if admin_signed_in? %>
+    <div class="container-fluid">
+      <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+          <div class="sidebar-header">
+            <h3>LIGHT UP CELEBRATIONS</h3>
+          </div>
+          <ul class="list-unstyled components">
+            <p>Admin Dashboard</p>
+            <li>
+              <%= link_to root_path do%>
+                <%= image_tag('circle.png', style:"width:12px;height:12px;margin-top:-3px;margin-right:5px;")%>Dashboard
+              <%end%>
+            </li>
+            <li>
+              <%= link_to customers_path do%>
+                <%= image_tag('circle.png', style:"width:12px;height:12px;margin-top:-3px;margin-right:5px;")%>Customers
+              <%end%>
+            </li>
+            <li>
+              <%= link_to vendors_path do%>
+                <%= image_tag('circle.png', style:"width:12px;height:12px;margin-top:-3px;margin-right:5px;")%>Vendors
+              <%end%>
+            </li>
+            <li>
+              <%= link_to bookings_path do%>
+                <%= image_tag('circle.png', style:"width:12px;height:12px;margin-top:-3px;margin-right:5px;")%>Bookings
+              <%end%>
+            </li>
+            <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+                <%= image_tag('circle.png', style:"width:12px;height:12px;margin-top:-3px;margin-right:5px;")%>Hall Managers
+              </a>
+              <ul class="collapse list-unstyled" id="pageSubmenu" style="list-style:fill;">
+                <li>
+                  <%= link_to hall_managers_vendors_path do%>
+                    <%= image_tag('circle.png', style:"width:9px;height:9px;margin-top:-3px;margin-right:5px;")%>Approved Hall Managers
+                  <%end%>
+                </li>
+                <li>
+                  <%= link_to unapproved_hall_managers_vendors_path do%>
+                    <%= image_tag('circle.png', style:"width:9px;height:9px;margin-top:-3px;margin-right:5px;")%>Unapproved Hall Managers
+                  <%end%>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#marqueeMenu" data-toggle="collapse" aria-expanded="false">
+                <%= image_tag('circle.png', style:"width:12px;height:12px;margin-top:-3px;margin-right:5px;")%>Marquees
+              </a>
+              <ul class="collapse list-unstyled" id="marqueeMenu">
+                <li>
+                  <%= link_to marquee_vendors_path do%>
+                    <%= image_tag('circle.png', style:"width:9px;height:9px;margin-top:-3px;margin-right:5px;")%>Approved Marquees
+                  <%end%>
+                </li>
+                <li>
+                  <%= link_to unapproved_marquee_vendors_path do%>
+                    <%= image_tag('circle.png', style:"width:9px;height:9px;margin-top:-3px;margin-right:5px;")%>Unapproved Marquees
+                  <%end%>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#photograpersMenu" data-toggle="collapse" aria-expanded="false">
+                <%= image_tag('circle.png', style:"width:12px;height:12px;margin-top:-3px;margin-right:5px;")%>Photograpers
+              </a>
+              <ul class="collapse list-unstyled" id="photograpersMenu">
+                <li>
+                  <%= link_to photographers_vendors_path do%>
+                    <%= image_tag('circle.png', style:"width:9px;height:9px;margin-top:-3px;margin-right:5px;")%>Approved Photographers
+                  <%end%>
+                </li>
+                <li>
+                  <%= link_to unapproved_photographers_vendors_path do%>
+                  <%= image_tag('circle.png', style:"width:9px;height:9px;margin-top:-3px;margin-right:5px;")%>Unapproved Photographers
+                <%end%>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#decoratorsMenu" data-toggle="collapse" aria-expanded="false">
+                <%= image_tag('circle.png', style:"width:12px;height:12px;margin-top:-3px;margin-right:5px;")%>Decorators
+              </a>
+              <ul class="collapse list-unstyled" id="decoratorsMenu">
+                <li>
+                  <%= link_to decorators_vendors_path do%>
+                    <%= image_tag('circle.png', style:"width:9px;height:9px;margin-top:-3px;margin-right:5px;")%>Approved Decorators
+                  <%end%>
+                </li>
+                <li>
+                  <%= link_to unapproved_decorators_vendors_path do%>
+                    <%= image_tag('circle.png', style:"width:9px;height:9px;margin-top:-3px;margin-right:5px;")%>Unpproved Decorators
+                  <%end%>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete do%>
+                <%= image_tag('circle.png', style:"width:12px;height:12px;margin-top:-3px;margin-right:5px;")%>Logout
+              <%end%>
+            </li>
+          </ul>
+        </nav>
+        <!-- Page Content Holder -->
+        <div id="content">
+          <nav class="navbar navbar-default" style="padding:0px;margin:0px;background:rgba(0,0,0,0.1);">
+            <div class="container-fluid" >
+              <div class="navbar-header">
+                <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" style="background:rgba(26,188,156,1); padding:10px;font-weight:bold;font-size:16px;">
+                  <i class="glyphicon glyphicon-align-left"></i>
+                  <span id="menu_text">Close Menu</span>
+                </button>
+              </div>
+            </div>
+          </nav>
+          <div class="col-md-12 col-xs-12"  >
+            <% if notice %>
+              <div id="notice_wrapper" class="my_notice">
+                <center><p class="app_notice"><%= notice %></p></center>
+              </div>
+            <%elsif alert %>
+              <div id="notice_wrapper" class="my_alert">
+                <center><p class="app_alert"><%= alert %></p></center>
+              </div>
+            <% end %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <%else%>
+      <div class="col-md-12 col-xs-12" style="padding:0px;margin:0px;">
+        <% if notice %>
+          <div id="notice_wrapper" class="my_notice">
+            <center><p class="app_notice"><%= notice %></p></center>
+          </div>
+        <%elsif alert %>
+          <div id="notice_wrapper" class="my_alert">
+            <center><p class="app_alert"><%= alert %></p></center>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    <%end%>
+
+    </body>
+    <script>
+    var menu_open = true;
+    $(document).ready(function(){
+    	setTimeout(function(){
+    	    $("#notice_wrapper").slideToggle('slow', function(){
+    	      $(this).remove();
+    	    });
+    	  }, 6000);
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            if(menu_open == true){
+              menu_open = false;
+              $("#menu_text").text("Open Menu");
+            }
+            else if(menu_open == false){
+              menu_open = true;
+              $("#menu_text").text("Close Menu");
+            }
+            console.log("Menu Status: " + menu_open);
+            $('#sidebar, #content').toggleClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
+    </script>
+  </html>
