@@ -11,7 +11,15 @@ Rails.application.routes.draw do
         resources :bookings, only: [:create, :index], defaults: {format: :json}
         resources :vendors do
           collection do
-            get :unapproved
+            get :approved_decorators
+            get :approved_halls
+            get :approved_marquees
+            get :approved_photographers
+
+            get :unapproved_decorators
+            get :unapproved_halls
+            get :unapproved_marquees
+            get :unapproved_photographers
           end
         end
         resources :marquees, defaults: {format: :json}
