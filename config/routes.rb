@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :users do
-        resources :bookings, only: [:create, :index], defaults: {format: :json}
+        resources :bookings, only: [:create, :index, :update], defaults: {format: :json}
         resources :vendors do
           collection do
             get :approved_decorators
