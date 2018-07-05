@@ -10,6 +10,7 @@ class Api::V1::Users::RegistrationsController < ApplicationController
       cnic = params[:cnic]
 			number = params[:number]
 			role = params[:role].to_i
+      image = params[:image]
 			if password == password_confirmation
 				@user = User.new
 				@user.email = email
@@ -19,6 +20,7 @@ class Api::V1::Users::RegistrationsController < ApplicationController
         @user.name = user_name
         @user.cnic = cnic
         @user.number = number
+        @user.image = image
 				if @user.save
           render json: @user.as_json(:except =>[:created_at, :updated_at]), status: 200
 				else

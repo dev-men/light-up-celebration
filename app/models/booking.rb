@@ -6,6 +6,4 @@ class Booking < ApplicationRecord
 
   belongs_to :user
   belongs_to :imageable, polymorphic: true
-
-  attr_accessor :contact_number
 end
