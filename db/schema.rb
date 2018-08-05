@@ -10,138 +10,138 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513203311) do
+ActiveRecord::Schema.define(version: 2018_05_13_203311) do
 
   create_table "admins", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.date     "day"
-    t.time     "start"
-    t.time     "end"
-    t.string   "location"
-    t.integer  "user_id"
-    t.string   "imageable_type"
-    t.integer  "imageable_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.date "day"
+    t.time "start"
+    t.time "end"
+    t.string "location"
+    t.integer "user_id"
+    t.string "imageable_type"
+    t.integer "imageable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["imageable_type", "imageable_id"], name: "index_bookings_on_imageable_type_and_imageable_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "decorators", force: :cascade do |t|
-    t.string   "image1"
-    t.string   "image2"
-    t.string   "image3"
-    t.string   "compnay_name"
-    t.string   "theme"
-    t.string   "address_line_1"
-    t.string   "address_line_2"
-    t.string   "city"
-    t.integer  "mayo"
-    t.integer  "mehndi"
-    t.integer  "barat"
-    t.integer  "walima"
-    t.integer  "party"
-    t.integer  "other"
-    t.integer  "user_id"
-    t.boolean  "approve",        default: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.string "image1"
+    t.string "image2"
+    t.string "image3"
+    t.string "compnay_name"
+    t.string "theme"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.integer "mayo"
+    t.integer "mehndi"
+    t.integer "barat"
+    t.integer "walima"
+    t.integer "party"
+    t.integer "other"
+    t.integer "user_id"
+    t.boolean "approve", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_decorators_on_user_id"
   end
 
   create_table "hall_managers", force: :cascade do |t|
-    t.string   "image1"
-    t.string   "image2"
-    t.string   "image3"
-    t.string   "hall_name"
-    t.integer  "number_of_halls"
-    t.string   "address_line_1"
-    t.string   "address_line_2"
-    t.string   "city"
-    t.integer  "budget_per_head"
-    t.integer  "guest_capacity"
-    t.integer  "user_id"
-    t.boolean  "approve",         default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string "image1"
+    t.string "image2"
+    t.string "image3"
+    t.string "hall_name"
+    t.integer "number_of_halls"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.integer "budget_per_head"
+    t.integer "guest_capacity"
+    t.integer "user_id"
+    t.boolean "approve", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_hall_managers_on_user_id"
   end
 
   create_table "marquees", force: :cascade do |t|
-    t.string   "image1"
-    t.string   "image2"
-    t.string   "image3"
-    t.string   "marquee_name"
-    t.integer  "numbe_of_marquee"
-    t.string   "address_line_1"
-    t.string   "address_line_2"
-    t.string   "city"
-    t.integer  "budget_per_head"
-    t.integer  "guest_capacity"
-    t.integer  "user_id"
-    t.boolean  "approve",          default: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string "image1"
+    t.string "image2"
+    t.string "image3"
+    t.string "marquee_name"
+    t.integer "numbe_of_marquee"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.integer "budget_per_head"
+    t.integer "guest_capacity"
+    t.integer "user_id"
+    t.boolean "approve", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_marquees_on_user_id"
   end
 
   create_table "photographers", force: :cascade do |t|
-    t.string   "image1"
-    t.string   "image2"
-    t.string   "image3"
-    t.string   "name"
-    t.string   "description"
-    t.string   "equipments"
-    t.string   "city"
-    t.integer  "mayo"
-    t.integer  "mehndi"
-    t.integer  "barat"
-    t.integer  "walima"
-    t.integer  "party"
-    t.integer  "other"
-    t.integer  "user_id"
-    t.boolean  "approve",     default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string "image1"
+    t.string "image2"
+    t.string "image3"
+    t.string "name"
+    t.string "description"
+    t.string "equipments"
+    t.string "city"
+    t.integer "mayo"
+    t.integer "mehndi"
+    t.integer "barat"
+    t.integer "walima"
+    t.integer "party"
+    t.integer "other"
+    t.integer "user_id"
+    t.boolean "approve", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_photographers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                             default: "", null: false
-    t.string   "encrypted_password",                default: "", null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "authentication_token",   limit: 30
-    t.string   "name"
-    t.string   "cnic"
-    t.string   "number"
-    t.string   "image"
-    t.integer  "role"
-    t.integer  "vendor_role",                       default: 0
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "authentication_token", limit: 30
+    t.string "name"
+    t.string "cnic"
+    t.string "number"
+    t.string "image"
+    t.integer "role"
+    t.integer "vendor_role", default: 0
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

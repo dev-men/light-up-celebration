@@ -81,19 +81,32 @@ class Api::V1::Users::BookingsController < ApplicationController
     begin
       @user = User.find_by_email(params[:user_email])
       if @user.role == 1
-        @b = Booking.new
-        @b.user_id = @user.id
-        @b.imageable_id = params[:imageable_id].to_i
-        @b.imageable_type = params[:imageable_type]
-        @b.day = params[:day]
-        @b.start = params[:start]
-        @b.end = params[:end]
-        @b.location = params[:location]
-        if @b.save
-          render json: @b.as_json(:except =>[:created_at, :updated_at, :user_id]), status: 200
+        @imageable_id = params[:imageable_id].to_i
+        @imageable_type = params[:imageable_type]
+        @day = params[:day]
+        @start = params[:start]
+        @end = params[:end]
+        @location = params[:location]
+        @b = Booking.where("imageable_id = ? AND imageable_type = ? AND day = ?", @imageable_id, @imageable_type, @day)
+        if @b.count > 0
+          @errors = "Sorry, No booking available for " + @day + ".\nPlease select another date."
+          render json: {:errors => @errors}, status: 200
         else
-          render json: {:errors => @b.errors.full_messages}, status: 200
+          @b = Booking.new
+          @b.user_id = @user.id
+          @b.imageable_id = @imageable_id
+          @b.imageable_type = @imageable_type
+          @b.day = @day
+          @b.start = @start
+          @b.end = @end
+          @b.location = @location
+          if @b.save
+            render json: @b.as_json(:except =>[:created_at, :updated_at, :user_id]), status: 200
+          else
+            render json: {:errors => @b.errors.full_messages}, status: 200
+          end
         end
+
       else
         render json: "-1", status: 200
       end
