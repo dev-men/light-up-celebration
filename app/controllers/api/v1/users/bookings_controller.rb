@@ -89,7 +89,8 @@ class Api::V1::Users::BookingsController < ApplicationController
         @location = params[:location]
         @b = Booking.where("imageable_id = ? AND imageable_type = ? AND day = ?", @imageable_id, @imageable_type, @day)
         if @b.count > 0
-          @errors = "Sorry, No booking available for " + @day + ".\nPlease select another date."
+          @errors = []
+          @errors << "Sorry, No booking available for " + @day + ".\nPlease select another date."
           render json: {:errors => @errors}, status: 200
         else
           @b = Booking.new
