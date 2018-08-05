@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 
- gem 'wdm', '>= 0.1.0'
+#gem 'wdm', '>= 0.1.0'
 # Pagination Gem
 gem 'will_paginate-bootstrap'
 gem 'will_paginate', '~> 3.1.0'
